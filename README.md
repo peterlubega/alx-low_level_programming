@@ -1,1 +1,1 @@
-This directory contains files of c practice with ALX
+This directory contains C programs that focus on debugging and fixing issues in existing code. Each program represents a specific debugging task and requires modification or fixing to achieve the desired functionality. Below is a description of each task along with the corresponding files involved.
