@@ -1,0 +1,1 @@
+This directory contains C programs that demonstrate various string and array manipulation functions. The programs cover tasks such as string concatenation, string comparison, string copying, and more.
