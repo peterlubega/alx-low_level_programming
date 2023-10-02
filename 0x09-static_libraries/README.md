@@ -1,1 +1,1 @@
-libmy.a and main.h
+Static libraries
