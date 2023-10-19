@@ -1,52 +1,42 @@
+#include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @s: A pointer to a character string
- * Return: The length of the string.
- */
-int _strlen(const char *s)
-{
-	unsigned int len;
-
-	for (len = 0; s[len] != '\0'; len++)
-	{
-	}
-	return (len);
-
-}
-
-/**
- * add_node_end - Add a new node to the end of a linked list.
- * @head: A pointer to a pointer to the head of the list
- * @str: The string to be stored in the new node
- * Return: A pointer to the newly added node
+ * add_node_end - adds a new node at the end of a linked list
+ * @head: double pointer to the list_t list
+ * @str: string to put in the new node
+ *
+ * Return: address of the new element, or NULL if it failed
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *n_node, *tmp_n_d;
+	list_t *new;
+	list_t *temp = *head;
+	unsigned int len = 0;
 
-	n_node = malloc(sizeof(list_t));
+	while (str[len])
+		len++;
 
-	if (n_node == NULL)
+	new = malloc(sizeof(list_t));
+	if (!new)
 		return (NULL);
 
-	n_node->str = strdup(str);
-	n_node->len = _strlen(str);
-	n_node->next = NULL;
+	new->str = strdup(str);
+	new->len = len;
+	new->next = NULL;
 
-	if (!*head)
+	if (*head == NULL)
 	{
-		*head = n_node;
+		*head = new;
+		return (new);
 	}
-	else
-	{
-		tmp_n_d = *head;
-		while (tmp_n_d->next)
-			tmp_n_d = tmp_n_d->next;
-		{
-			tmp_n_d->next = n_node;
-		}
-	}
-	return (n_node);
+
+	while (temp->next)
+		temp = temp->next;
+
+	temp->next = new;
+
+	return (new);
 }
+
