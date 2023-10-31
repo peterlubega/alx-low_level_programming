@@ -51,7 +51,23 @@ header->e_type == ET_DYN ? "DYN (Shared object file)" :
 header->e_type == ET_CORE ? "CORE (Core file)" : "UNKNOWN (Unknown type)"
 );
 printf("  Entry point address: %#lx\n", header->e_entry);
+printf("Start of program headers: %ld (bytes into file)\n", header->e_phoff);
+printf("Start of section headers: %ld (bytes into file)\n", header->e_shoff);
+printf("Flags: 0x%x\n", header->e_flags);
+printf("Size of this header: %d (bytes)\n", header->e_ehsize);
+printf("Size of program headers: %d (bytes)\n", header->e_phentsize);
+printf("Number of program headers: %d\n", header->e_phnum);
+printf("Size of section headers: %d (bytes)\n", header->e_shentsize);
+printf("Number of section headers: %d\n", header->e_shnum);
+printf("Section header string table index: %d\n", header->e_shstrndx);
 }
+
+/**
+ * main - The entry point of the ELF header information program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of command-line argument strings.
+ * Return: 0 on successful execution, 98 on errors.
+ */
 
 int main(int argc, char *argv[])
 {
